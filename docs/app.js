@@ -176,29 +176,47 @@ async function exportPng() {
   if (!state.selected.length) { flashHint("Agregá tickers primero"); return; }
   if (typeof html2canvas !== "function") { flashHint("html2canvas no cargó"); return; }
 
-  // Inject a watermark for the capture
   const wm = document.createElement("div");
   wm.className = "export-watermark";
   wm.textContent = "dkardjian.github.io/root-dashboard-data · " + new Date().toLocaleString("es-AR");
   area.querySelector(".panel-chart").appendChild(wm);
   area.classList.add("is-exporting");
 
+  // Swap the Chart.js canvas for an <img> so html2canvas doesn't re-scale
+  // it with the device pixel ratio (which caused the overlap bug).
+  const canvasEl = document.getElementById("chart");
+  const rect = canvasEl.getBoundingClientRect();
+  const dataUrl = chart ? chart.toBase64Image("image/png", 1) : canvasEl.toDataURL("image/png");
+  const img = new Image();
+  img.src = dataUrl;
+  img.style.width = rect.width + "px";
+  img.style.height = rect.height + "px";
+  img.style.display = "block";
+  canvasEl.style.display = "none";
+  canvasEl.parentNode.insertBefore(img, canvasEl);
+
   try {
-    const canvas = await html2canvas(area, {
+    await new Promise((resolve, reject) => {
+      if (img.complete && img.naturalWidth) return resolve();
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+    const out = await html2canvas(area, {
       backgroundColor: "#0a0d12",
       scale: 2,
       useCORS: true,
       logging: false,
-      windowWidth: Math.max(1200, area.offsetWidth),
     });
     const link = document.createElement("a");
     link.download = `root-comparador-${state.range}-${isoDate(new Date())}.png`;
-    link.href = canvas.toDataURL("image/png");
+    link.href = out.toDataURL("image/png");
     link.click();
   } catch (e) {
     console.error(e);
     flashHint("error al exportar");
   } finally {
+    img.remove();
+    canvasEl.style.display = "";
     area.classList.remove("is-exporting");
     wm.remove();
   }

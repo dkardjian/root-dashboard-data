@@ -104,6 +104,13 @@ body {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 20px 22px;
+  position: relative;
+}
+
+#snapshot-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* ---------- Controls ---------- */
