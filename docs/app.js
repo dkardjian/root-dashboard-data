@@ -131,6 +131,77 @@ function bindControls() {
     state.customTo = document.getElementById("date-to").value;
     update();
   });
+
+  document.getElementById("btn-fullscreen").addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", onFullscreenChange);
+  document.getElementById("btn-export").addEventListener("click", exportPng);
+}
+
+/* ---------- Fullscreen ---------- */
+
+function toggleFullscreen() {
+  const panel = document.querySelector(".panel-chart");
+  if (!document.fullscreenElement) {
+    (panel.requestFullscreen?.() || panel.webkitRequestFullscreen?.() || Promise.reject())
+      .catch(() => {
+        // Fallback: CSS-based fullscreen for browsers without the API
+        panel.classList.add("is-fullscreen");
+        document.body.style.overflow = "hidden";
+        setFullscreenIcon(true);
+        if (chart) chart.resize();
+      });
+  } else {
+    document.exitFullscreen?.();
+  }
+}
+function onFullscreenChange() {
+  const isFs = Boolean(document.fullscreenElement);
+  setFullscreenIcon(isFs);
+  if (!isFs) {
+    document.querySelector(".panel-chart").classList.remove("is-fullscreen");
+    document.body.style.overflow = "";
+  }
+  if (chart) setTimeout(() => chart.resize(), 50);
+}
+function setFullscreenIcon(isFs) {
+  document.getElementById("icon-expand").hidden = isFs;
+  document.getElementById("icon-collapse").hidden = !isFs;
+  document.getElementById("btn-fullscreen").title = isFs ? "Salir de pantalla completa" : "Pantalla completa";
+}
+
+/* ---------- Export PNG ---------- */
+
+async function exportPng() {
+  const area = document.getElementById("snapshot-area");
+  if (!state.selected.length) { flashHint("Agregá tickers primero"); return; }
+  if (typeof html2canvas !== "function") { flashHint("html2canvas no cargó"); return; }
+
+  // Inject a watermark for the capture
+  const wm = document.createElement("div");
+  wm.className = "export-watermark";
+  wm.textContent = "dkardjian.github.io/root-dashboard-data · " + new Date().toLocaleString("es-AR");
+  area.querySelector(".panel-chart").appendChild(wm);
+  area.classList.add("is-exporting");
+
+  try {
+    const canvas = await html2canvas(area, {
+      backgroundColor: "#0a0d12",
+      scale: 2,
+      useCORS: true,
+      logging: false,
+      windowWidth: Math.max(1200, area.offsetWidth),
+    });
+    const link = document.createElement("a");
+    link.download = `root-comparador-${state.range}-${isoDate(new Date())}.png`;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  } catch (e) {
+    console.error(e);
+    flashHint("error al exportar");
+  } finally {
+    area.classList.remove("is-exporting");
+    wm.remove();
+  }
 }
 
 /* ---------- Autocomplete ---------- */
@@ -334,8 +405,10 @@ async function update() {
   const { from, to } = getRange();
   if (!from || !to || from >= to) {
     setChartStatus("rango inválido", true);
+    updateRangeLabels(from, to);
     return;
   }
+  updateRangeLabels(from, to);
 
   const results = {};
   await Promise.all(
@@ -557,6 +630,22 @@ function setChartStatus(msg, isError = false) {
   const el = document.getElementById("chart-status");
   el.textContent = msg || "";
   el.classList.toggle("error", Boolean(isError));
+}
+
+const RANGE_LABELS = {
+  MTD: "MTD", YTD: "YTD", "3M": "3M", "6M": "6M", "1Y": "1 año", CUSTOM: "Personalizado",
+};
+function updateRangeLabels(from, to) {
+  document.getElementById("range-label").textContent = RANGE_LABELS[state.range] || state.range;
+  const el = document.getElementById("range-dates");
+  if (from && to) {
+    el.textContent = `${fmtShortDate(from)} → ${fmtShortDate(to)}`;
+  } else {
+    el.textContent = "—";
+  }
+}
+function fmtShortDate(d) {
+  return d.toLocaleDateString("es-AR", { day: "2-digit", month: "short", year: "numeric" });
 }
 
 /* ---------- Utils ---------- */

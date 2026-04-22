@@ -4,11 +4,31 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Root · Comparador de acciones</title>
+<meta name="description" content="Compará el rendimiento de hasta 8 acciones en distintos períodos (MTD, YTD, 3M, 6M, 1A o rango personalizado). Datos de Yahoo Finance.">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Root · Comparador de acciones">
+<meta property="og:title" content="Root · Comparador de acciones">
+<meta property="og:description" content="Compará el rendimiento de hasta 8 acciones en distintos períodos. MELI, NU, VIST, GGAL, SPY, QQQ y más.">
+<meta property="og:url" content="https://dkardjian.github.io/root-dashboard-data/">
+<meta property="og:image" content="https://dkardjian.github.io/root-dashboard-data/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_AR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Root · Comparador de acciones">
+<meta name="twitter:description" content="Compará el rendimiento de hasta 8 acciones en distintos períodos.">
+<meta name="twitter:image" content="https://dkardjian.github.io/root-dashboard-data/og-image.png">
+
+<meta name="theme-color" content="#0a0d12">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -54,13 +74,27 @@
     </div>
   </section>
 
+  <div id="snapshot-area">
   <section class="panel panel-chart">
     <div class="chart-header">
       <div>
         <h2 class="chart-title">Rendimiento comparado</h2>
-        <p class="chart-sub">Base 100 al inicio del rango · precios ajustados de Yahoo Finance</p>
+        <p class="chart-sub">
+          <span id="range-label">YTD</span> ·
+          <span id="range-dates">—</span> ·
+          base 100 · Yahoo Finance
+        </p>
       </div>
-      <div id="chart-status" class="chart-status"></div>
+      <div class="chart-actions">
+        <div id="chart-status" class="chart-status"></div>
+        <button class="icon-btn" id="btn-export" title="Exportar como PNG" aria-label="Exportar como PNG">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="icon-btn" id="btn-fullscreen" title="Pantalla completa" aria-label="Pantalla completa">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="icon-expand"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="icon-collapse" hidden><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </button>
+      </div>
     </div>
     <div class="chart-wrap">
       <canvas id="chart"></canvas>
@@ -87,6 +121,7 @@
       </table>
     </div>
   </section>
+  </div>
 
 </main>
 
