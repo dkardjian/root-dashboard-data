@@ -332,10 +332,72 @@ body {
   text-align: right;
 }
 .chart-status.error { color: var(--neg); }
+
+.chart-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  color: var(--text-dim);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.icon-btn:hover {
+  background: rgba(46, 230, 184, 0.08);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+.icon-btn:active { transform: translateY(1px); }
+.icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  color: var(--text-faint);
+}
+
 .chart-wrap {
   position: relative;
   height: 440px;
 }
+
+/* Fullscreen mode: applied to .panel-chart while in native fullscreen */
+.panel-chart:fullscreen,
+.panel-chart.is-fullscreen {
+  background: var(--bg);
+  padding: 28px 36px;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+}
+.panel-chart:fullscreen .chart-wrap,
+.panel-chart.is-fullscreen .chart-wrap {
+  flex: 1;
+  height: auto;
+  min-height: 0;
+}
+
+/* Export watermark (shown only during html2canvas capture) */
+.export-watermark {
+  display: none;
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+.is-exporting .export-watermark { display: block; }
+.is-exporting .icon-btn,
+.is-exporting .chart-status { visibility: hidden; }
 .chart-empty {
   position: absolute;
   inset: 0;
