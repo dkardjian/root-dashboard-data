@@ -1,0 +1,175 @@
+{
+  "_updated": "2026-06-07 16:53",
+  "fecha": "04/06/2026",
+  "emisores": [
+    {
+      "name": "PAMPA ENERGIA",
+      "pct": 14.57
+    },
+    {
+      "name": "VISTA",
+      "pct": 13.33
+    },
+    {
+      "name": "PAE",
+      "pct": 7.07
+    },
+    {
+      "name": "SOBERANO ARG",
+      "pct": 6.64
+    },
+    {
+      "name": "LIQUIDEZ",
+      "pct": 6.45
+    },
+    {
+      "name": "GEOPARK",
+      "pct": 4.87
+    },
+    {
+      "name": "TGS",
+      "pct": 4.77
+    },
+    {
+      "name": "TECPETROL",
+      "pct": 4.5
+    },
+    {
+      "name": "YPF",
+      "pct": 4.5
+    },
+    {
+      "name": "OLDELVAL",
+      "pct": 3.79
+    },
+    {
+      "name": "PROV. CHUBUT",
+      "pct": 3.15
+    },
+    {
+      "name": "PECOM",
+      "pct": 3.03
+    },
+    {
+      "name": "TELECOM",
+      "pct": 2.52
+    },
+    {
+      "name": "MACRO",
+      "pct": 2.44
+    },
+    {
+      "name": "CRESUD",
+      "pct": 2.42
+    },
+    {
+      "name": "YPF LUZ",
+      "pct": 2.36
+    },
+    {
+      "name": "BCO VALORES",
+      "pct": 1.98
+    },
+    {
+      "name": "ARCOR",
+      "pct": 1.96
+    },
+    {
+      "name": "MSU",
+      "pct": 1.81
+    },
+    {
+      "name": "AES",
+      "pct": 1.69
+    },
+    {
+      "name": "CAMUZZI",
+      "pct": 1.67
+    },
+    {
+      "name": "JOHN DEERE",
+      "pct": 1.27
+    },
+    {
+      "name": "EXAR",
+      "pct": 1.19
+    },
+    {
+      "name": "PLUSPETROL",
+      "pct": 0.8
+    },
+    {
+      "name": "MEGA",
+      "pct": 0.62
+    },
+    {
+      "name": "PROV. NEUQUEN",
+      "pct": 0.43
+    },
+    {
+      "name": "GALICIA",
+      "pct": 0.14
+    },
+    {
+      "name": "CENTRAL PUERTO",
+      "pct": 0.03
+    },
+    {
+      "name": "CLISA",
+      "pct": 0.01
+    },
+    {
+      "name": "ALUAR",
+      "pct": 0.01
+    },
+    {
+      "name": "AA2000",
+      "pct": 0.0
+    }
+  ],
+  "asset_classes": [
+    {
+      "label": "Corporativo",
+      "value": "83,33%"
+    },
+    {
+      "label": "Soberano",
+      "value": "6,64%"
+    },
+    {
+      "label": "Subsoberano",
+      "value": "3,58%"
+    },
+    {
+      "label": "Liquidez",
+      "value": "6,45%"
+    }
+  ],
+  "params": [
+    {
+      "label": "TIR promedio ponderada",
+      "value": "6,27%",
+      "highlight": true
+    },
+    {
+      "label": "Cupón promedio ponderado",
+      "value": "7,33%",
+      "highlight": false
+    },
+    {
+      "label": "Current Yield ponderado",
+      "value": "6,90%",
+      "highlight": false
+    },
+    {
+      "label": "Duration ponderada",
+      "value": "3,68 años",
+      "highlight": false
+    },
+    {
+      "label": "AUM (Patrimonio Neto)",
+      "value": "43.466.627 USD",
+      "highlight": false
+    }
+  ]
+}
