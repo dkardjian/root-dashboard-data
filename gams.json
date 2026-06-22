@@ -1,6 +1,6 @@
 {
-  "_updated": "2026-06-20 13:33",
-  "fecha": "20/06/2026",
+  "_updated": "2026-06-22 12:48",
+  "fecha": "22/06/2026",
   "emisores": [
     {
       "name": "PAMPA ENERGIA",
@@ -148,7 +148,7 @@
   "params": [
     {
       "label": "TIR promedio ponderada",
-      "value": "6,03%",
+      "value": "6,07%",
       "highlight": true
     },
     {
@@ -158,12 +158,12 @@
     },
     {
       "label": "Current Yield ponderado",
-      "value": "6,45%",
+      "value": "6,46%",
       "highlight": false
     },
     {
       "label": "Duration ponderada",
-      "value": "3,78 años",
+      "value": "3,77 años",
       "highlight": false
     },
     {
