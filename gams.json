@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-07-22 11:59",
+  "_updated": "2026-07-22 12:03",
   "fecha": "22/07/2026",
   "emisores": [
     {
@@ -7,16 +7,12 @@
       "pct": 13.1
     },
     {
+      "name": "SOBERANO ARG",
+      "pct": 12.75
+    },
+    {
       "name": "VISTA",
       "pct": 11.77
-    },
-    {
-      "name": "SOBERANO ARG",
-      "pct": 8.37
-    },
-    {
-      "name": "LIQUIDEZ",
-      "pct": 8.2
     },
     {
       "name": "PAE",
@@ -41,6 +37,10 @@
     {
       "name": "TECPETROL",
       "pct": 3.84
+    },
+    {
+      "name": "LIQUIDEZ",
+      "pct": 3.83
     },
     {
       "name": "OLDELVAL",
@@ -130,7 +130,7 @@
     },
     {
       "label": "Soberano",
-      "value": "8,37%"
+      "value": "12,75%"
     },
     {
       "label": "Subsoberano",
@@ -144,7 +144,7 @@
   "params": [
     {
       "label": "TIR promedio ponderada",
-      "value": "6,43%",
+      "value": "6,23%",
       "highlight": true
     },
     {
@@ -154,12 +154,12 @@
     },
     {
       "label": "Current Yield ponderado",
-      "value": "5,48%",
+      "value": "5,44%",
       "highlight": false
     },
     {
       "label": "Duration ponderada",
-      "value": "3,93 años",
+      "value": "3,92 años",
       "highlight": false
     },
     {
