@@ -1,106 +1,106 @@
 {
-  "_updated": "2026-08-04 09:45",
-  "fecha": "03/08/2026",
+  "_updated": "2026-08-14 18:14",
+  "fecha": "14/08/2026",
   "emisores": [
     {
       "name": "PAMPA ENERGIA",
-      "pct": 13.38
+      "pct": 13.05
     },
     {
       "name": "SOBERANO ARG",
-      "pct": 12.53
+      "pct": 12.11
     },
     {
       "name": "VISTA",
-      "pct": 10.65
-    },
-    {
-      "name": "PLUSPETROL",
-      "pct": 5.58
-    },
-    {
-      "name": "PAE",
-      "pct": 5.3
+      "pct": 10.4
     },
     {
       "name": "LIQUIDEZ",
-      "pct": 5.19
+      "pct": 6.73
+    },
+    {
+      "name": "PLUSPETROL",
+      "pct": 5.88
+    },
+    {
+      "name": "PAE",
+      "pct": 5.25
     },
     {
       "name": "GEOPARK",
-      "pct": 4.34
+      "pct": 4.33
     },
     {
       "name": "TGS",
-      "pct": 4.0
+      "pct": 3.94
     },
     {
       "name": "YPF",
-      "pct": 3.78
+      "pct": 3.7
     },
     {
       "name": "TECPETROL",
-      "pct": 3.54
+      "pct": 3.48
     },
     {
       "name": "OLDELVAL",
-      "pct": 3.32
+      "pct": 3.25
     },
     {
       "name": "PROV. CHUBUT",
-      "pct": 3.03
+      "pct": 2.97
     },
     {
       "name": "JOHN DEERE",
-      "pct": 2.78
-    },
-    {
-      "name": "PECOM",
       "pct": 2.7
     },
     {
+      "name": "PECOM",
+      "pct": 2.62
+    },
+    {
       "name": "TELECOM",
-      "pct": 2.53
+      "pct": 2.62
     },
     {
       "name": "CRESUD",
-      "pct": 2.14
+      "pct": 2.12
     },
     {
       "name": "MACRO",
-      "pct": 2.11
+      "pct": 2.05
     },
     {
       "name": "YPF LUZ",
-      "pct": 2.11
+      "pct": 2.04
     },
     {
       "name": "PROV. NEUQUEN",
-      "pct": 1.84
+      "pct": 1.79
     },
     {
       "name": "BCO VALORES",
-      "pct": 1.71
+      "pct": 1.66
     },
     {
       "name": "ARCOR",
-      "pct": 1.67
+      "pct": 1.65
     },
     {
       "name": "MSU",
-      "pct": 1.61
-    },
-    {
-      "name": "CAMUZZI",
-      "pct": 1.45
+      "pct": 1.57
     },
     {
       "name": "AES",
-      "pct": 1.44
+      "pct": 1.42
+    },
+    {
+      "name": "CAMUZZI",
+      "pct": 1.42
     },
     {
       "name": "EXAR",
-      "pct": 1.04
+      "pct": 1.01
     },
     {
       "name": "MEGA",
@@ -126,45 +126,45 @@
   "asset_classes": [
     {
       "label": "Corporativo",
-      "value": "77,41%"
+      "value": "76,39%"
     },
     {
       "label": "Soberano",
-      "value": "12,53%"
+      "value": "12,11%"
     },
     {
       "label": "Subsoberano",
-      "value": "4,88%"
+      "value": "4,77%"
     },
     {
       "label": "Liquidez",
-      "value": "5,19%"
+      "value": "6,03%"
     }
   ],
   "params": [
     {
       "label": "TIR promedio ponderada",
-      "value": "6,35%",
+      "value": "6,69%",
       "highlight": true
     },
     {
       "label": "Cupón promedio ponderado",
-      "value": "7,05%",
+      "value": "7,20%",
       "highlight": false
     },
     {
       "label": "Current Yield ponderado",
-      "value": "5,40%",
+      "value": "5,22%",
       "highlight": false
     },
     {
       "label": "Duration ponderada",
-      "value": "3,91 años",
+      "value": "3,95 años",
       "highlight": false
     },
     {
       "label": "AUM (Patrimonio Neto)",
-      "value": "50.251.937 USD",
+      "value": "51.673.132 USD",
       "highlight": false
     }
   ]
