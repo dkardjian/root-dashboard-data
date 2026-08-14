@@ -1,5 +1,5 @@
 {
-  "_updated": "2026-08-14 18:14",
+  "_updated": "2026-08-14 18:20",
   "fecha": "14/08/2026",
   "emisores": [
     {
@@ -126,7 +126,7 @@
   "asset_classes": [
     {
       "label": "Corporativo",
-      "value": "76,39%"
+      "value": "77,10%"
     },
     {
       "label": "Soberano",
@@ -144,22 +144,22 @@
   "params": [
     {
       "label": "TIR promedio ponderada",
-      "value": "6,69%",
+      "value": "6,75%",
       "highlight": true
     },
     {
       "label": "Cupón promedio ponderado",
-      "value": "7,20%",
+      "value": "7,27%",
       "highlight": false
     },
     {
       "label": "Current Yield ponderado",
-      "value": "5,22%",
+      "value": "5,29%",
       "highlight": false
     },
     {
       "label": "Duration ponderada",
-      "value": "3,95 años",
+      "value": "4,00 años",
       "highlight": false
     },
     {
